@@ -10,6 +10,7 @@ var baseURL = '';
 for (let i = 0; i < path.length - 1; i++) {
   baseURL += '/' + path[i]
 };
+console.log(baseURL);
 
 var username = localStorage.getItem('sessionUserName');
 if (username) {
@@ -64,7 +65,7 @@ function logIn() {
         document.getElementById('login-err-msg').innerHTML = `<span class="text-success m-3">success</span>`;
         localStorage.setItem("sessionUserName", users[i].name);
         if (baseURL == '/') {
-          location.replace('http://' + location.hostname + '/home.html');
+          location.replace('https://' + location.hostname + '/home.html');
         } else {
           location.replace(baseURL + '/home.html');
         }
