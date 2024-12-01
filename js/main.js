@@ -9,10 +9,11 @@ var signupUserPass = document.getElementById('signup-user-password');
 var path = location.href.split('/');
 var baseURL = '';
 for (let i = 2; i < path.length - 1; i++) {
+  console.log('here inside');
   baseURL += '/' + path[i]
 };
-console.log(baseURL);
 localStorage.setItem("baseURL", baseURL);
+console.log(baseURL);
 
 // check store
 var users = [];
