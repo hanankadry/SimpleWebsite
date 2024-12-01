@@ -1,0 +1,55 @@
+body {
+    background-color: #24353F;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+a.text-white:hover {
+    text-decoration: underline;
+}
+
+.shadow-outline {
+    box-shadow: -5px 2px 54px -9px rgba(0, 0, 0, 1);
+}
+
+.login-box {
+    width: 75%;
+    padding: 3rem;
+    margin: auto;
+    text-align: center;
+}
+
+.title {
+    color: #17A2B8;
+    font-size: 2.5rem;
+    padding: 0;
+}
+
+input.form-control {
+    background-color: transparent;
+    color: #fff;
+}
+
+input.form-control::placeholder {
+    color: #b6b6b6;
+}
+
+input.form-control:focus {
+    box-shadow: 0 0 0 0 transparent;
+}
+
+.home {
+    height: 75vh;
+}
+
+.navbar a {
+    padding: 8px;
+    color: rgba(255, 255, 255, .5);
+}
+
+.navbar a:hover {
+    color: rgba(255, 255, 255, .75);
+}
