@@ -58,6 +58,7 @@ function signUp() {
       users.push(user);
       localStorage.setItem('users', JSON.stringify(users));
       document.getElementById('signup-err-msg').innerHTML = `<span class="text-success m-3">success</span>`;
+      clear();
     }
   }
 }
@@ -84,5 +85,18 @@ function logIn() {
 
 // logout
 function logOut() {
+  if (baseURL == '/127.0.0.1:5500') {
+    location.replace('http:/' + baseURL);
+  } else {
+    location.replace('https:/' + baseURL)
+  }
   localStorage.removeItem("sessionUserName");
 }
+
+
+function clear() {
+  signupUserName.value = "";
+  signupUserEmail.value = "";
+  signupUserPass.value = "";
+}
+

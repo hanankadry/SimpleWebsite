@@ -45,11 +45,11 @@ input.form-control:focus {
     height: 75vh;
 }
 
-.navbar a {
+.navbar button {
     padding: 8px;
     color: rgba(255, 255, 255, .5);
 }
 
-.navbar a:hover {
+.navbar button:hover {
     color: rgba(255, 255, 255, .75);
 }
