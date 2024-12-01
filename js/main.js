@@ -85,12 +85,12 @@ function logIn() {
 
 // logout
 function logOut() {
+  localStorage.removeItem("sessionUserName");
   if (baseURL == '/127.0.0.1:5500') {
     location.replace('http:/' + baseURL);
   } else {
     location.replace('https:/' + baseURL)
   }
-  localStorage.removeItem("sessionUserName");
 }
 
 
