@@ -9,7 +9,7 @@ var signupUserPass = document.getElementById('signup-user-password');
 var path = location.href.split('/');
 var baseURL = '';
 for (let i = 2; i < path.length - 1; i++) {
-  baseURL += path[i]
+  baseURL += '/' + path[i]
 };
 console.log(baseURL);
 localStorage.setItem("baseURL", baseURL);
@@ -70,9 +70,9 @@ function logIn() {
       if (loginUserEmail.value == users[i].email && loginUserPass.value == users[i].pass) {
         localStorage.setItem("sessionUserName", users[i].name);
         if (baseURL == '127.0.0.1:5500') {
-          location.replace('http://' + baseURL + '/home.html');
+          location.replace('http:/' + baseURL + '/home.html');
         } else {
-          location.replace('https://' + baseURL + '/home.html')
+          location.replace('https:/' + baseURL + '/home.html')
         }
       } else {
         document.getElementById('login-err-msg').innerHTML = `<span class="text-danger m-3">incorrect email or password</span>`;
