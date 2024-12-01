@@ -1,23 +1,20 @@
+// inputs
 var loginUserEmail = document.getElementById('login-user-email');
 var loginUserPass = document.getElementById('login-user-password');
 var signupUserName = document.getElementById('signup-user-name');
 var signupUserEmail = document.getElementById('signup-user-email');
 var signupUserPass = document.getElementById('signup-user-password');
 
-
-var path = location.pathname.split('/');
+// path
+var path = location.href.split('/');
 var baseURL = '';
-for (let i = 0; i < path.length - 1; i++) {
-  baseURL += '/' + path[i]
+for (let i = 2; i < path.length - 1; i++) {
+  baseURL += path[i]
 };
-console.log(path);
 console.log(baseURL);
+localStorage.setItem("baseURL", baseURL);
 
-// var username = localStorage.getItem('sessionUserName');
-// if (username) {
-//   document.getElementById('welcome-user').innerHTML = "Welcome " + username;
-// }
-
+// check store
 var users = [];
 if (localStorage.getItem("users") == null) {
   users = [];
@@ -25,6 +22,13 @@ if (localStorage.getItem("users") == null) {
   var users = JSON.parse(localStorage.getItem("users"));
 }
 
+// display username in home
+var username = localStorage.getItem('sessionUserName');
+if (username != null) {
+  document.getElementById('welcome-user').innerHTML = "Welcome " + username;
+}
+
+// check if email exists
 function emailExists() {
   if (users.length == 0) {
     return false;
@@ -37,6 +41,7 @@ function emailExists() {
   }
 }
 
+// signup function
 function signUp() {
   if (signupUserName.value == "" || signupUserEmail.value == "" || signupUserPass.value == "") {
     document.getElementById('signup-err-msg').innerHTML = `<span class="text-danger m-3">all inputs are required</span>`;
@@ -56,19 +61,18 @@ function signUp() {
   }
 }
 
-
+// login function
 function logIn() {
   if (loginUserEmail.value == "" || loginUserPass.value == "") {
     document.getElementById('login-err-msg').innerHTML = `<span class="text-danger m-3">all inputs are required</span>`;
   } else {
     for (let i = 0; i < users.length; i++) {
       if (loginUserEmail.value == users[i].email && loginUserPass.value == users[i].pass) {
-        document.getElementById('login-err-msg').innerHTML = `<span class="text-success m-3">success</span>`;
         localStorage.setItem("sessionUserName", users[i].name);
-        if (baseURL == '/') {
-          location.replace('https://' + location.hostname + '/home.html');
+        if (baseURL == '127.0.0.1:5500') {
+          location.replace('http://' + baseURL + '/home.html');
         } else {
-          location.replace(baseURL + '/home.html');
+          location.replace('https://' + baseURL + '/home.html')
         }
       } else {
         document.getElementById('login-err-msg').innerHTML = `<span class="text-danger m-3">incorrect email or password</span>`;
@@ -77,6 +81,7 @@ function logIn() {
   }
 }
 
+// logout
 function logOut() {
   localStorage.removeItem("sessionUserName");
 }
