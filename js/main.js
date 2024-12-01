@@ -70,7 +70,7 @@ function logIn() {
     for (let i = 0; i < users.length; i++) {
       if (loginUserEmail.value == users[i].email && loginUserPass.value == users[i].pass) {
         localStorage.setItem("sessionUserName", users[i].name);
-        if (baseURL == '127.0.0.1:5500') {
+        if (baseURL == '/127.0.0.1:5500') {
           location.replace('http:/' + baseURL + '/home.html');
         } else {
           location.replace('https:/' + baseURL + '/home.html')
