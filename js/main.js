@@ -12,10 +12,10 @@ for (let i = 0; i < path.length - 1; i++) {
 };
 console.log(baseURL);
 
-var username = localStorage.getItem('sessionUserName');
-if (username) {
-  document.getElementById('welcome-user').innerHTML = "Welcome " + username;
-}
+// var username = localStorage.getItem('sessionUserName');
+// if (username) {
+//   document.getElementById('welcome-user').innerHTML = "Welcome " + username;
+// }
 
 var users = [];
 if (localStorage.getItem("users") == null) {
