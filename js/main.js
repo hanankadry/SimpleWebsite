@@ -10,6 +10,7 @@ var baseURL = '';
 for (let i = 0; i < path.length - 1; i++) {
   baseURL += '/' + path[i]
 };
+console.log(path);
 console.log(baseURL);
 
 // var username = localStorage.getItem('sessionUserName');
